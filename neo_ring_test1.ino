@@ -95,6 +95,7 @@ void loop()
 			colorMode = 0;
 			break;
 		}
+		turnOnLights(red, green, blue); //rgb
 		delay(300);
 	}
 	else{
@@ -109,7 +110,7 @@ void loop()
 			brightness = 100;
 		}
 		pixels.setBrightness(brightness);
-
+		turnOnLights(red, green, blue); //rgb
 		delay(300);
 	}
 	else
@@ -138,12 +139,9 @@ void flikerLights(){
 void turnOnLights(int r, int g, int b){
 	for (int i = 0; i < NUMPIXELS; i++)
 	{
-
 		// pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
 		pixels.setPixelColor(i, pixels.Color(r, g, b)); // Moderately bright green color.
-
 		pixels.show();
-
 	}
 }
 
