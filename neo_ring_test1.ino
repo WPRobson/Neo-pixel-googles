@@ -44,59 +44,10 @@ void loop()
 
 	buttonState1 = digitalRead(buttonPin1);
 	buttonState2 = digitalRead(buttonPin2);
-	Serial.println(buttonState1);
-	Serial.println(buttonState2);
 
 	if (buttonState1 == 1 && button1Enable){
 		button1Enable = false;
-		colorMode = colorMode + 1;
-
-		switch (colorMode)
-		{
-		case 1: // Red
-			red = 255;
-			green = 0;
-			blue = 0;
-			break;
-		case 2: // Green
-			red = 0;
-			green = 255;
-			blue = 0;
-			break;
-		case 3: //Blue
-			red = 0;
-			green = 0;
-			blue = 255;
-			break;
-		case 4: //Purple
-			red = 50;
-			green = 0;
-			blue = 255;
-			break;
-		case 5: //Pink
-			red = 255;
-			green = 0;
-			blue = 255;
-			break;
-		case 6: //Orange
-			red = 255;
-			green = 100;
-			blue = 0;
-			break;
-		case 7: //Yellow
-			red = 255;
-			green = 255;
-			blue = 0;
-			break;
-		case 8: //White
-			red = 255;
-			green = 255;
-			blue = 255;
-			colorMode = 0;
-			break;
-		}
-		turnOnLights(red, green, blue); //rgb
-		delay(300);
+		switchColourMode();
 	}
 	else{
 		button1Enable = true;
@@ -151,4 +102,55 @@ void turnOffLights(){
 		pixels.setPixelColor(i, pixels.Color(0, 0, 0)); 
 		pixels.show();
 	}
+}
+
+void switchColourMode(){
+	colorMode = colorMode + 1;
+
+		switch (colorMode)
+		{
+		case 1: // Red
+			red = 255;
+			green = 0;
+			blue = 0;
+			break;
+		case 2: // Green
+			red = 0;
+			green = 255;
+			blue = 0;
+			break;
+		case 3: //Blue
+			red = 0;
+			green = 0;
+			blue = 255;
+			break;
+		case 4: //Purple
+			red = 50;
+			green = 0;
+			blue = 255;
+			break;
+		case 5: //Pink
+			red = 255;
+			green = 0;
+			blue = 255;
+			break;
+		case 6: //Orange
+			red = 255;
+			green = 100;
+			blue = 0;
+			break;
+		case 7: //Yellow
+			red = 255;
+			green = 255;
+			blue = 0;
+			break;
+		case 8: //White
+			red = 255;
+			green = 255;
+			blue = 255;
+			colorMode = 0;
+			break;
+		}
+		turnOnLights(red, green, blue); //rgb
+		delay(300);
 }
