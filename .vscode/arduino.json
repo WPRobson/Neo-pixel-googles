@@ -1,0 +1,5 @@
+{
+    "board": "arduino:avr:micro",
+    "port": "COM3",
+    "sketch": "neo_ring_test1.ino"
+}
